@@ -34,7 +34,7 @@ $RawDataArray | ForEach-Object {
                 break
             }
             2 {
-                switch ($v[1].Trim().SubString(0, 1)) {
+                switch ($v[1].Trim().SubString(0, 1).ToLower()) {
                     "a" {
                         $AllowSet += $v[0].Trim()
                         break
