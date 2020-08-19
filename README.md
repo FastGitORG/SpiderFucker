@@ -2,7 +2,7 @@
 
 Before all, FUCK YOU, SPIDER!🖕🖕🖕
 
-After FastGit been attacked by bytespider(Spider Bot from ByteDance) and consume over 8 TiB of bandwidth quota in 24 hours, we found that not all the spiders obey the game rules. So that, we create this repository to record fucking spider bots.
+After FastGit been attacked by **bytespider**(Spider Bot from **ByteDance**) and consume **over 8 TiB** of bandwidth quota in **24 hours**, we found that not all the spiders obey the game rules. So that, we create this repository to record fucking spider bots.
 
 ## Components
 
