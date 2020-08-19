@@ -3,7 +3,7 @@
 # Default category of spider is 'Neutral'
 # 
 # Basically, use "$User-agent:$Catelogory" as a template.
-# However, if the $Catelogory is 'Neutral' (defalt value), then this line can be abbreviated as '$User-agent'
+# However, if the $Catelogory is 'Neutral' (default value), this line can be abbreviated as '$User-agent'
 # Meanwhile, "$Catelogory" should be recorded with its abbreviated form.
 # Allow => a/A
 # Neutral => n/N
