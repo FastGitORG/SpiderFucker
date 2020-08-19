@@ -1,0 +1,58 @@
+# This file has the following syntax
+# Use '#' to start a comment
+# Default category of spider is 'Neutral'
+# 
+# Basically, use "$User-agent:$Catelogory" as a template.
+# However, if the $Catelogory is 'Neutral' (defalt value), then this line can be abbreviated as '$User-agent'
+# Meanwhile, "$Catelogory" should be recorded with its abbreviated form.
+# Allow => a/A
+# Neutral => n/N
+# Block => b/B
+
+qihoobot:a
+360spider:a
+Baiduspider:a
+Baiduspider-image:a
+Baiduspider-render:a
+Bingbot:a
+Bytebot:b
+Googlebot:a
+Googlebot-Mobile:a
+Googlebot-Image:a
+Mediapartners-Google:a
+Adsbot-Google:a
+Feedfetcher-Google:a
+Yahoo! Slurp:a
+Yahoo! Slurp China:a
+YoudaoBot
+Sosospider
+Sosoimagespider
+Sogou inst spider
+Sogou spider2
+Sogou blog
+Sogou Orion spider
+Sogou News Spider
+Sogou spider
+Sogou Pic Spider
+Sogou web spider:a
+Sogou Video Spider
+MSNBot
+ia_archiver
+Tomato Bot
+Speedy Spider
+YandexBot:a
+EasouSpider
+HuaweiSymantecSpider
+qiniu-imgstg-spider
+JianKongBao Monitor
+DNSPod-Monitor:a
+LinkpadBot
+MJ12bot:b
+YisouSpider:a
+DuckDuckGo:a
+AhrefsBot:b
+SEMrushBot:b
+DotBot:b
+MauiBot:b
+AspiegelBot:b
+SemrushBot:b
