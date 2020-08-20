@@ -48,14 +48,14 @@ $RawDataArray | ForEach-Object {
                         break
                     }
                     default {
-                        Write-Output "Unknown input"
+                        Write-Output "Unknown input: $v"
                         break
                     }
                 }
                 break
             }
             default {
-                Write-Output "Unknown input"
+                Write-Output "Unknown input: $v"
                 break
             }
         }
