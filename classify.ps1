@@ -19,9 +19,9 @@ function New-RobotsTxt {
 
     $target = ""
     if ($BlockList) {
-        $target = "robots-block.txt"
+        $target = "./result/robots-block.txt"
     } else {
-        $target = "robots-allow.txt"
+        $target = "./result/robots-allow.txt"
     }
 
     Remove-File $target             | Out-Null
@@ -46,15 +46,24 @@ $BlockSet = @()
 $AllowSet = @()
 $NeutralSet = @()
 
-$RawDataArray = [IO.File]::ReadAllLines(".\raw.txt") | Sort-Object
+$BlockTxtPath = "./result/block.txt"
+$AllowTxtPath = "./result/allow.txt"
+$NeutralTxtPath = "./result/neutral.txt"
+$RawTxtPath = "./raw.txt"
 
-Remove-File "./block.txt"   | Out-Null
-Remove-File "./allow.txt"   | Out-Null
-Remove-File "./neutral.txt" | Out-Null
+if (!(Test-Path "./result")) {
+    New-Item "result" -ItemType Directory | Out-Null
+}
 
-New-Item "./block.txt"   -ItemType File | Out-Null
-New-Item "./allow.txt"   -ItemType File | Out-Null
-New-Item "./neutral.txt" -ItemType File | Out-Null
+$RawDataArray = [IO.File]::ReadAllLines("$RawTxtPath") | Sort-Object
+
+Remove-File "$BlockTxtPath"   | Out-Null
+Remove-File "$AllowTxtPath"   | Out-Null
+Remove-File "$NeutralTxtPath" | Out-Null
+
+New-Item "$BlockTxtPath"   -ItemType File | Out-Null
+New-Item "$AllowTxtPath"   -ItemType File | Out-Null
+New-Item "$NeutralTxtPath" -ItemType File | Out-Null
 
 $RawDataArray | ForEach-Object {
     if (!$_.StartsWith("#") -and $_.Trim() -ne "") {
@@ -93,9 +102,9 @@ $RawDataArray | ForEach-Object {
     }
 }
 
-[IO.File]::WriteAllLines("./block.txt"  , $BlockSet  )
-[IO.File]::WriteAllLines("./allow.txt"  , $AllowSet  )
-[IO.File]::WriteAllLines("./neutral.txt", $NeutralSet)
+[IO.File]::WriteAllLines("$BlockTxtPath"  , $BlockSet  )
+[IO.File]::WriteAllLines("$AllowTxtPath"  , $AllowSet  )
+[IO.File]::WriteAllLines("$NeutralTxtPath", $NeutralSet)
 
 New-RobotsTxt $AllowSet 0
 New-RobotsTxt $BlockSet 1
