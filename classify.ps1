@@ -1,6 +1,6 @@
 function Remove-File {
     param (
-        [string]$FileName
+        [string] $FileName
     )
     if (Test-Path "$FileName") {
         Remove-Item "$FileName"
@@ -9,6 +9,38 @@ function Remove-File {
     else {
         return 0
     }
+}
+
+function New-RobotsTxt {
+    param (
+        [string[]] $Array,
+        [bool] $BlockList
+    )
+
+    $target = ""
+    if ($BlockList) {
+        $target = "robots-block.txt"
+
+    } else {
+        $target = "robots-allow.txt"
+    }
+    Remove-File $target             | Out-Null
+    New-Item $target -ItemType File | Out-Null
+
+    $config = "User-agent:"
+    $Array | ForEach-Object {
+        $config += $_ + ","
+    }
+    $config = $config.Substring(0, $config.Length - 1)
+
+    if ($BlockList) {
+        $config += "`nDisallow: /"
+    } else {
+        $config += "`nAllow: /"
+    }
+    [IO.File]::WriteAllText("$target", "$config")
+    
+
 }
 
 $BlockSet = @()
@@ -65,3 +97,6 @@ $RawDataArray | ForEach-Object {
 [IO.File]::WriteAllLines("./block.txt"  , $BlockSet  )
 [IO.File]::WriteAllLines("./allow.txt"  , $AllowSet  )
 [IO.File]::WriteAllLines("./neutral.txt", $NeutralSet)
+
+New-RobotsTxt $AllowSet 0
+New-RobotsTxt $BlockSet 1
