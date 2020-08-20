@@ -10,6 +10,12 @@ After FastGit been attacked by **bytespider**(Spider Bot from **ByteDance**) and
 - Neutral : We don't know or are not sure.
 - Allow : This kinds of spider is good for the website.
 
+## Way to use
+
+1. Before all, clone this repository
+1. Run `classify.ps1` on PowerShell(We recommend using PowerShell 5+)
+1. Finally, you will get 3 files, that's it!
+
 -----
 
 ***FUCK YOU, SPIDER!🖕🖕🖕***
