@@ -20,10 +20,10 @@ function New-RobotsTxt {
     $target = ""
     if ($BlockList) {
         $target = "robots-block.txt"
-
     } else {
         $target = "robots-allow.txt"
     }
+
     Remove-File $target             | Out-Null
     New-Item $target -ItemType File | Out-Null
 
@@ -38,9 +38,8 @@ function New-RobotsTxt {
     } else {
         $config += "`nAllow: /"
     }
-    [IO.File]::WriteAllText("$target", "$config")
-    
 
+    [IO.File]::WriteAllText("$target", "$config")
 }
 
 $BlockSet = @()
