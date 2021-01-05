@@ -9,6 +9,7 @@
 # Neutral => n/N
 # Block => b/B
 
+MJ12bot:b
 qihoobot:a
 360spider:a
 Baiduspider:a
